@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" title="main" href="main.css">
+	<link rel="alternate stylesheet" type="text/css" title="minimal" href="main-minimal.css">
+	<title>JavaScript - Homework 001 - Data types and Variables</title>
+	<script type="text/javascript">
+	function togglediv(id) {
+    var div = document.getElementById(id);
+    div.style.display = div.style.display == "none" ? "block" : "none";
+	}
+	</script>
+</head>
+<body>
+<div class="wrapper">
+		<header>
+			<h1>Homework 002 - Operators and Expressions</h1>
+		</header>
+		<div class="display-menu">
+			<form>
+				<input type="submit" onclick="switch_style('main');return false;" name="theme" value="Main Theme" id="main">
+				<input type="submit" onclick="switch_style('minimal');return false;" name="theme" value="Minimal" id="minimal">
+			</form>
+		</div>
+		<nav>
+			<span>Choose task: </span>
+			<ul>
+				<li><button onclick="togglediv('task1')">1</button></li>
+				<li><button onclick="togglediv('task2')">2</button></li>
+				<li><button onclick="togglediv('task3')">3</button></li>
+				<li><button onclick="togglediv('task4')">4</button></li>
+				<li><button onclick="togglediv('task5')">5</button></li>
+				<li><button onclick="togglediv('task6')">6</button></li>
+				<li><button onclick="togglediv('task7')">7</button></li>
+				<li><button onclick="togglediv('task8')">8</button></li>
+				<li><button onclick="togglediv('task9')">9</button></li>
+			</ul>
+		</nav>
+		<div class="legend">single click to expand/collapse each task - also JavaScripts can be tested via console</div>
+		<main class="content">
+		<div id="task1">
+			<h2>Problem 001  - Odd or Even</h2>
+			<p class="description">Write an expression that checks if given integer is odd or even.</p>
+			<article>
+<pre class="code-print">
+	var oddEvenCheck = function(num) {
+		if (num % 2 === 0) {
+			return false;
+		}
+		else {
+			return true;
+		}
+	};
+	var numbers = [3,2,-2,-3,0];
+	for (var i = numbers.length - 1; i >= 0; i--) {
+		console.log(numbers[i] + ' ' + oddEvenCheck(numbers[i]));
+	}
+</pre>
+				<aside>source file : javascript.js</aside>
+			</article>
+		</div>
+		<div id="task2">
+			<h2>Problem 002 - Divisible by 7 and 5</h2>
+			<p class="description">Write a boolean expression that checks for given integer if it can be divided (without remainder) by 7 and 5 in the same time.</p>
+			<article>
+<pre class="code-print">
+	var divBySevenFive = function(num) {
+		if (num % 5 === 0 && num % 7 === 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	};
+	var numbers = [3,0,5,7,35,140];
+	for (var i = numbers.length - 1; i >= 0; i--) {
+		console.log(numbers[i] + ' ' + divBySevenFive(numbers[i]));
+	}
+</pre>
+				<aside>source file : javascript.js</aside>				
+			</article>
+		</div>
+		<div id="task3">
+			<h2>Problem 003 - Rectangle area</h2>
+			<p class="description">Write an expression that calculates rectangle’s area by given width and height.</p>
+			<article>
+<pre class="code-print">
+	var rectArea = function(width,heigth) {
+		return width * heigth;
+	};
+	var widths = [3,2.5,5];
+	var heigths = [4,3,5];
+	for (var i = widths.length - 1; i >= 0; i--) {
+		console.log(widths[i] +'*'+ heigths[i] +' = ' 
+		+ rectArea(widths[i],heigths[i]));
+	}
+</pre>
+				<aside>source file : javascript.js</aside>				
+			</article>
+		</div>
+		<div id="task4">
+			<h2>Problem 004 - Third digit</h2>
+			<p class="description">Write an expression that checks for given integer if its third digit (right-to-left) is 7.</p>
+			<article>
+<pre class="code-print">
+	function sevenCheck(num) {
+		if (Math.floor((num / 100) % 10) === 7) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	var numbers = [5,701,1732,9703,877,777877,9999799];
+	for (var i = numbers.length - 1; i >= 0; i--) {
+		console.log(numbers[i] +' '+ sevenCheck(numbers[i]));
+	}
+</pre>
+				<aside>source file : javascript.js</aside>				
+			</article>
+		</div>
+		<div id="task5">
+			<h2>Problem 005 - Third bit</h2>
+			<p class="description">		
+Write a boolean expression for finding if the bit #3 (counting from 0) of a given integer.
+The bits are counted from right to left, starting from bit #0.
+The result of the expression should be either 1 or 0.
+			</p>
+			<article>
+<pre class="code-print">
+	var numbers = [5,8,0,15,5343,62241];
+	var mask = 1;
+	var pos = 3;
+	var wantedBit = 0;
+	for (var i = numbers.length - 1; i >= 0; i--) {
+		var temp = numbers[i] >> pos;
+		wantedBit = temp& mask;
+		console.log("Number: "+numbers[i] + "\n Bit:" + wantedBit);
+	}
+</pre>
+				<aside>source file : javascript.js</aside>				
+			</article>
+		</div>	
+		<div id="task6">
+			<h2>Problem 006 - Point in Circle</h2>
+			<p class="description">Write an expression that checks if given point P(x, y) is within a circle K(O, 5).</p>
+			<article>
+<pre class="code-print">
+	var xCoord = [0,-5,-4,1.5,-4,100,0,0.2,0.9,2];
+	var yCoord = [1,0,5,-3,-3.5,-30,0,-0.8,-4.93,2.655];
+	var hCentre = 0;
+	var kCentre = 0;
+	var radius = 5;
+	var pointInCircle = function(x,y,hc,kc,r){
+		var dx = x - hc;
+		var dy = y - kc;
+		var circle = (dx*dx) + (dy*dy);
+		var diameter = r * r;
+		var isInCircle = circle < (diameter);
+		return isInCircle;
+	};
+	for (var i = 0; i < xCoord.length; i+=1) {
+		console.log('K(0,0)5 P('+xCoord[i]+','+yCoord[i]+')');
+		console.log(pointInCircle(xCoord[i],yCoord[i],hCentre,kCentre,radius));
+	}
+</pre>
+				<aside>source file : javascript.js</aside>				
+			</article>
+		</div>	
+		<div id="task7">
+			<h2>Problem 007 - Is prime</h2>
+			<p class="descrition">Write an expression that checks if given positive integer number n (n ≤ 100) is prime.</p>
+			<article>
+<pre class="code-print">
+	var numbers = [1,2,3,4,9,37,97,51,-3,0];
+	var isPrime = true;
+	for (var i = 0; i < numbers.length; i+=1) {
+		if (numbers[i] < 2) {
+			console.log(numbers[i] +' - '+ !isPrime);
+		}
+		else if (numbers[i] === 3 || numbers[i] === 2) {
+			console.log(numbers[i] +' - '+ isPrime);
+		}
+		else {
+			if (numbers[i]%2 ===0) {
+				console.log(numbers[i] +' - '+ !isPrime);
+			}
+			else if (numbers[i]%3 !==0 && numbers[i]%5 !==0 && numbers[i]%7 !==0 ) 
+			{
+				console.log(numbers[i] +' - '+ isPrime);
+			}
+			else 
+			{
+				console.log(numbers[i] +' - '+ !isPrime);
+			}
+		}
+	}
+</pre>
+				<aside>source file : javascript.js</aside>				
+			</article>
+		</div>
+		<div id="task8">
+			<h2>Problem 008 - Trapezoid area</h2>
+			<p class="description">Write an expression that calculates trapezoid's area by given sides a and b and height h.</p>
+			<article>
+<pre class="code-print">
+	var aSizes = [5,2,8.5,100,0.222];
+	var bSizes = [7,1,4.3,200,0.333];
+	var hipos = [12,33,2.7,300,0.555];  
+	var getTrapezoidArea =  function(a,b,h) {
+		return ((a+b)/2)*h;
+	};     
+	for (var i = 0; i < aSizes.length; i+=1) {
+		console.log('A='+aSizes[i]+' B='+bSizes[i]+' H='+hipos[i]);
+		console.log(getTrapezoidArea(aSizes[i],bSizes[i],hipos[i]));
+	}
+</pre>
+				<aside>source file : javascript.js</aside>				
+			</article>
+		</div>
+		<div id="task9">
+			<h2>Problem 009 - Point in Circle and outside Rectangle</h2>
+			<p class="description">Write an expression that checks for given point P(x, y) if it is within the circle K( (1,1), 3) and out of the rectangle R(top=1, left=-1, width=6, height=2).</p>
+			<article>
+<pre class="code-print">
+	var xCoord = [1,2.5,0,2.5,2,4,2.5,2,1,-100];
+	var yCoord = [2,2,1,1,0,0,1.5,1.5,2.5,-100];
+	var hCentre = 1;
+	var kCentre = 1;
+	var radius = 3;
+	var pointInCircle = function(x,y,hc,kc,r){
+		var dx = x - hc;
+		var dy = y - kc;
+		var circle = (dx*dx) + (dy*dy);
+		var diameter = r * r;
+		var isInCircle = circle < (diameter);
+		return isInCircle;
+	};
+	for (var i = 0; i < xCoord.length; i+=1) {
+		console.log('K(1,1)3 P('+xCoord[i]+','+yCoord[i]+')');
+		var checkRectangle = 
+		(xCoord[i] < -1) || (xCoord[i] > 5) || (yCoord[i] < -1) || (yCoord[i] > 1); 
+
+		var checkCircle = pointInCircle(xCoord[i],yCoord[i],hCentre,kCentre,radius);
+		if (checkCircle && checkRectangle) {
+			console.log('yes');
+		}
+		else {
+			console.log('no');
+		}
+	}
+</pre>
+				<aside>source file : javascript.js</aside>				
+			</article>
+		</div>	
+		</main>				
+</div>
+<script type="text/javascript" src="javascript.js"></script>
+<script type="text/javascript" src="css-switcher.js"></script>
+</body>
+</html>
