@@ -84,10 +84,10 @@
 	 	display: block;
 	 }
 	.display-menu {
-	 	position: relative; left: 5%; 
+	 	position: relative; left: 75%; 
 	 }
 	 .display-menu form input {
-	 	width: 100px;
+	 	width: 80px;
 	 	background-color: black;
 	 	color: gray; font-size: 12px; text-align: center;
 	 	border:1px solid gray; border-radius: 10px; border-top:none;
